@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--txt);
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.light-theme {
+    --background: url("https://tailwindcss.com/_next/static/media/hero@75.b2469a49.jpg");
+    --primary: #F8FAFC;
+    --secondary: #0F172A;
+    --txt: #000;
+    --heading: #2dd9fe;
+    --btn-color: #fff;
+    --btn-background: #5f99be;
+    --search-background: #000;
+    --c: #2dd9fe;
+    --hover_bg_change: backdrop-filter:6px;
+}
+
+.dark-theme {
+    --background: url("https://tailwindcss.com/_next/static/media/hero-dark@90.dba36cdf.jpg");
+    --primary: rgb(30,41,59);
+    --secondary: #D5DDF0;
+    --txt: #fff;
+    --heading: #4666FF;
+    --btn-color: #000;
+    --btn-background: #5f99be;
+    --search-background: #18181b;
+}
+
+body {
+    background: var(--background);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100% !important;
+}
+
+nav {
+    height: 70px;
+    backdrop-filter: blur(4px);
+    border-bottom: 0.1px solid grey;
+}
+
+.heading {
+    color: var(--heading);
+}
+
+nav ul {
+    min-width: 378px;
+}
+
+.dropdown-li {
+    position: relative;
+}
+
+ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    display: none;
+    background: var(--primary);
+}
+
+.show-dropdown {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    min-width: 250px;
+    text-align: left;
+    padding-top: 20px;
+    box-shadow: 0px 3px 5px -1px var(--heading);
+}
+
+.down-arrow-icon {
+    height: 16px;
+    width: 16px;
+    padding-top: 2px;
+    transition: 0.2s ease-in-out;
+}
+
+.down-arrow-icon > path {
+    color: var(--heading) !important;
+}
+
+.down-arrow-icon-active {
+    transform: rotate(-180deg);
+}
+
+.dropdown {
+    min-height: 10vh;
+    height: 50vh;
+    overflow: auto;
+    top: 30px;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    border-style: none;
+}
+
+ul li ul li a:hover {
+    padding-left: 10px;
+    border-left: 2px solid #3ca0e7;
+    transition: all 0.3s ease;
+}
+
+.flags {
+    height: 30px;
+    width: 30px;
+}
+
+.ham-burger {
+    display: none;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.ham-burger:hover {
+    cursor: pointer;
+}
+
+.ham-open .line-1 {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.ham-open .line-2 {
+    width: 0;
+}
+
+.ham-open .line-3 {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.lines {
+    width: 30px;
+    height: 3px;
+    background: var(--heading);
+    display: block;
+    margin: 5px 0;
+    transition: transform 1s, width 0.5s;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+}
+
+.search-box {
+    background: var(--primary);
+    height: 50px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.search-box:focus {
+    outline: none;
+    border: 2px solid var(--btn-background);
+}
+
+.btn {
+    background-color: var(--heading);
+    color: var(--btn-color);
+    width: 130.51px;
+    height: 50px;
+    border-top-right-radius: 4px;
+    margin-left: -2px;
+    border-bottom-right-radius: 4px;
+}
+
+.pagination-btn {
+    background-color: var(--heading);
+    color: var(--btn-color);
+    width: 130.51px;
+    height: 50px;
+    border-radius: 34px;
+}
+
+.everything-card {
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.everything-card:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+    background: var(--primary);
+    box-shadow: 0 0 11px grey; 
+}
+
+.everything-card-img {
+    width: 280px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.title {
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+footer {
+    color: var(--btn-color);
+    background: var(--heading);
+}
+
+/* Loader */
+.loader-container {
+    height: 100vh;
+    padding: 0; 
+    align-items: center;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    color: var(--heading);
+    background: radial-gradient(farthest-side, currentColor calc(100% - 6px), #0000 calc(100% - 5px) 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 13px), #000 calc(100% - 12px));
+    border-radius: 50%;
+    animation: l19 2s infinite linear;
+}
+
+.loader::before,
+.loader::after {    
+    content: "";
+    grid-area: 1/1;
+    background:
+        linear-gradient(currentColor 0 0) center,
+        linear-gradient(currentColor 0 0) center;
+    background-size: 100% 10px, 10px 100%;
+    background-repeat: no-repeat;
+}
+
+.loader::after {
+    transform: rotate(45deg);
+}
+
+@keyframes l19 { 
+    100% { transform: rotate(1turn) }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .cards {
+        place-items: center;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 689px) {
+    nav {
+        justify-content: space-between !important;
+        padding: 0 5% !important;
+    }
+}
+
+@media (max-width: 689px) {
+    .btn {
+        width: 80px;
+        height: 40px;
+    }
+
+    .search-box {
+        height: 39px;
+        width: 70%;
+    }
+
+    .ham-burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--primary);
+        z-index: 1;
+        padding: 25% 10%;
+        transition: 0.3s;
+    }
+
+    nav ul.active {
+        left: 0;
+        display: flex;
+    }
+
+    .everything-card {
+        width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .everything-card {
+        width: 90%;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
